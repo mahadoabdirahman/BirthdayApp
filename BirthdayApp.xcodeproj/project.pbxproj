@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		BD1953732E33EFA500A1B33B /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1953722E33EFA500A1B33B /* Friend.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		BD1953562E33EF3300A1B33B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		BD1953482E33EF3100A1B33B /* BirthdayApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BirthdayApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD1953552E33EF3300A1B33B /* BirthdayAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BirthdayAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD19535F2E33EF3300A1B33B /* BirthdayAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BirthdayAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD1953722E33EFA500A1B33B /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +80,7 @@
 		BD19533F2E33EF3100A1B33B = {
 			isa = PBXGroup;
 			children = (
+				BD1953722E33EFA500A1B33B /* Friend.swift */,
 				BD19534A2E33EF3100A1B33B /* BirthdayApp */,
 				BD1953582E33EF3300A1B33B /* BirthdayAppTests */,
 				BD1953622E33EF3300A1B33B /* BirthdayAppUITests */,
@@ -236,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD1953732E33EFA500A1B33B /* Friend.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
