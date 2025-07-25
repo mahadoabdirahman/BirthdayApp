@@ -6,18 +6,19 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
-    @State private var friends: [Friend] = [
-        Friend (name: "Poorna", birthday: .now),
-        Friend (name: "Sundus", birthday: .now)
-    ]
+    @Query private var friends: [Friend]
+    @Environment(\.modelContext) private var context
     @State private var newName = ""
     @State private var newBirthday = Date.now
     
     var body: some View {
         NavigationStack {
-            List(friends, id: \.name) { friend in
+            List {
+                ForEach(friends) { friend in
+                    
                 HStack {
                     Text(friend.name)
                     Spacer()
@@ -25,27 +26,38 @@ struct ContentView: View {
                 }
                 
             }
+            .onDelete(perform: deleteFriend)
+        }
             .navigationTitle("Birthdays")
             .safeAreaInset(edge: .bottom) {
                 VStack (alignment: .center, spacing: 20){
                     Text("New Birthday")
                         .font(.headline)
-                    DatePicker(selection: $newBirthday, in: Date.distantPast...Date.now, dislayedComponents: .date) {
+                    DatePicker(selection: $newBirthday, in: Date.distantPast...Date.now, displayedComponents: .date) {
                         TextField("Name", text: $newName)
                             .textFieldStyle(.roundedBorder)
                     }
                     Button("Save") {
                         let newFriend = Friend(name: newName, birthday: newBirthday)
-                        friends.append(newFriend)
+                        context.insert(newFriend)
                         newName = ""
                         newBirthday = .now
                     }
                     .bold()
                 }
+                .padding()
+                .background(.bar)
             }
+        }
+    }
+    func deleteFriend(at offsets: IndexSet){
+        for index in offsets{
+            let friendtoDelete = friends[index]
+            context.delete(friendtoDelete)
         }
     }
 }
         #Preview {
             ContentView()
+                .modelContainer(for: Friend.self, inMemory: true)
         }
